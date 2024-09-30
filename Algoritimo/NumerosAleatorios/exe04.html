@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Gere um número aleatório entre 1 e 20, e exiba se é par ou ímpar na página.</p>
+    <button onclick="gerar()">
+        Gerar
+    </button><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function gerar(){
+        var aleatorio =0
+        mostrar.innerHTML = ""
+            aleatorio = parseInt(Math.random() * 20 + 1)     
+
+            if(aleatorio % 2 == 0){
+                mostrar.innerHTML += `É PAR = ${aleatorio} <br> `
+            }else{
+                mostrar.innerHTML += `É IMPAR = ${aleatorio} <br> `
+            }
+        
+    }
+</script>

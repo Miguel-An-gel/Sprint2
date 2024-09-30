@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Gere 10 números aleatórios entre -50 e 50 e 
+        exiba se cada número é positivo, negativo ou zero na página.</p>
+        <button onclick="gerar()">
+            Gerar
+        </button><br>
+        <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function gerar(){
+        var aleatorio = 0
+        mostrar.innerHTML = ""
+        for(var n=0; n<10; n++){
+            aleatorio = parseInt(Math.random() *100 - 50)
+            if(aleatorio == 0){
+                mostrar.innerHTML += `${aleatorio} Este número é ZERO <br> <br>`
+            }
+            else if(aleatorio <0) {
+                mostrar.innerHTML += `${aleatorio} Número Negativo <br> <br>`
+            }
+            else{
+                mostrar.innerHTML += `${aleatorio} Número Positivo <br> <br>`
+            }
+            
+    
+        }
+    }
+</script>

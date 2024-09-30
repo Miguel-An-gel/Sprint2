@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Simule o lançamento de um dado (número aleatório entre 1 e 6) 5 vezes 
+        e exiba os resultados na página.</p>
+        <button onclick="gerar()">
+            Lançar Dado
+        </button><br>
+        <div id="mostrar">
+
+        </div>
+</body>
+</html>
+
+<script>
+    function gerar(){
+        var dado = 0
+        mostrar.innerHTML = ""
+        for(var n=0; n<5; n++){
+            if(n <=6){
+                dado = parseInt(Math.random() * 6 +1)
+                mostrar.innerHTML += `${dado} <br>`
+            }else{
+                mostrar.innerHTML += ` <br> FIM`
+
+            }
+            
+
+        }
+    }
+</script>

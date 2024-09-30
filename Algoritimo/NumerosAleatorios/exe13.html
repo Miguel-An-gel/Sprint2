@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> Simule o lançamento de dois dados (números aleatórios entre 1 e 6)
+        10 vezes. Para cada lançamento, 
+        exiba na página a soma dos dois dados e 
+        indique se a soma foi um número par ou ímpar.</p>
+    <button onclick="jogar()">
+        Jogar
+    </button><br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function jogar(){
+        var dado1 = 0
+        var dado2 = 0
+        mostrar.innerHTML =""
+        for(var n=0; n<10; n++){
+            dado1 = parseInt(Math.random() * 6 +1)
+            dado2 = parseInt(Math.random() * 6 +1)
+            var soma = dado1 + dado2
+
+            mostrar.innerHTML += `<br>Primeiro dado = ${dado1}<br>
+            Segundo dado = ${dado2} <br>` 
+            if(soma % 2 ==0){
+                mostrar.innerHTML += `a Soma dos 2 dados é ${soma} e é PAR<br>`
+            }else{
+                mostrar.innerHTML += `a Soma dos 2 dados é ${soma} e é IMPAR<br>`
+            }
+        }
+    }
+</script>

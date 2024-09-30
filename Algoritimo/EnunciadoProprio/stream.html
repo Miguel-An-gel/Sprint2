@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamer Live Hours</title>
+</head>
+<body>
+    <h1>Controle de Horas de Live - Streamer</h1>
+
+    <form id="liveHoursForm">
+        <label for="jan">Janeiro:</label>
+        <input type="number" id="jan" value="100"><br><br>
+
+        <label for="feb">Fevereiro:</label>
+        <input type="number" id="feb" value="100"><br><br>
+
+        <label for="mar">Março:</label>
+        <input type="number" id="mar" value="100"><br><br>
+
+        <label for="apr">Abril:</label>
+        <input type="number" id="apr" value="100"><br><br>
+
+        <label for="may">Maio:</label>
+        <input type="number" id="may" value="100"><br><br>
+
+        <label for="jun">Junho:</label>
+        <input type="number" id="jun" value="100"><br><br>
+
+        <label for="jul">Julho:</label>
+        <input type="number" id="jul" value="100"><br><br>
+
+        <label for="aug">Agosto:</label>
+        <input type="number" id="aug" value="100"><br><br>
+
+        <label for="sep">Setembro:</label>
+        <input type="number" id="sep" value="100"><br><br>
+
+        <label for="oct">Outubro:</label>
+        <input type="number" id="oct" value="100"><br><br>
+
+        <label for="nov">Novembro:</label>
+        <input type="number" id="nov" value="100"><br><br>
+
+        <label for="dec">Dezembro:</label>
+        <input type="number" id="dec" value="100"><br><br>
+
+        <button type="button" onclick="adjustLiveHours()">Calcular Ajustes</button>
+    </form>
+
+    <h2>Resultado:</h2>
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ <script>
+function adjustLiveHours() {
+    const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    let totalHours = 0;
+    let adjustment = 0; // Diferença de horas para ajustar no próximo mês
+
+    for (let i = 0; i < months.length; i++) {
+        let input = document.getElementById(months[i]);
+        let hours = parseInt(input.value);
+
+        // Aplica ajuste de horas do mês anterior, se houver
+        hours += adjustment;
+
+        // Respeita o limite de 120 horas máximo e 80 horas mínimo
+        if (hours > 120) {
+            adjustment = hours - 100; // Excedente para ajustar no próximo mês
+            hours = 120;
+        } else if (hours < 80) {
+            adjustment = 100 - hours; // Deficit para ajustar no próximo mês
+            hours = 80;
+        } else {
+            adjustment = hours - 100; // Calcula excedente ou deficit para o próximo mês
+        }
+
+        // Atualiza o input com o valor ajustado
+        input.value = hours;
+
+        totalHours += hours;
+    }
+
+    document.getElementById("result").innerText = `Total de horas em 12 meses: ${totalHours} horas`;
+}
+</script>

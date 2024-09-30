@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Gere 20 números inteiros aleatórios entre 1 e 50.
+        Exiba todos os números na página e, em seguida, 
+        exiba a soma de todos os números que forem múltiplos de 5.</p>
+    <button onclick="gerar()">
+        Gerar
+    </button>  <br>
+    <div id="mostrar"></div>
+</body>
+</html>
+
+<script>
+    function gerar(){
+        var aleatorio = 0
+        var somar = 0
+        mostrar.innerHTML =""
+        for(var n=0; n<20; n++){
+            aleatorio = parseInt(Math.random() * 50 +1)
+            if(aleatorio % 5 ==0){
+                somar += aleatorio
+            }
+            mostrar.innerHTML += `${aleatorio} <br>`
+        }
+        mostrar.innerHTML += `Soma de todos os números que forem múltiplos de 5 é : ${somar}`
+    }
+</script>
